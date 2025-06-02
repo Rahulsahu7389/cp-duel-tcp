@@ -1,0 +1,115 @@
+/* Login.css */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a2233; /* Deep blue-gray background */
+}
+
+.login-card {
+  background: #222a36;
+  padding: 2.5rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card h2 {
+  color: #ffd600;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size:1.8rem;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.85rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #394052;
+  border-radius: 7px;
+  background: #1b2230;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.login-input:focus {
+  border-color: #ffd600;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.85rem;
+  background: #ffd600;
+  color: #222a36;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background 0.18s;
+  margin-bottom: 1rem;
+}
+
+.login-button:hover {
+  background: #ffb300;
+}
+
+.login-card p {
+  color: #b0b8c9;
+  margin-top: 0.7rem;
+  font-size: 0.98rem;
+}
+
+.login-card a {
+  color: #ffd600;
+  text-decoration: none;
+  font-weight: 500;
+  transition: text-decoration 0.2s;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+.login-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: #222a36;
+  color: #ffd600;
+  text-align: center;
+  padding: 1.2rem 0 0.6rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.login-header-sub {
+  color: #b0b8c9;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #1a2233;
+  position: relative;
+}
