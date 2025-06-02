@@ -33,14 +33,12 @@ const login = async (req, res) => {
         if (!user) {
             return res.status(400).json({message: "user does not exist",success:false});//success false means error
         }
-        console.log(user);
-        console.log(req.body);
         
         
-        // console.log(password," user ka: ",user.password)
+        
         const isMatch = await bcrypt.compare(password, user.password);// comparing the password with the hashed password
         if (!isMatch) {
-            console.log(isMatch);
+            
             return res.status(403).json({message: "either email or password is wrong",success:false});//success false means error
         }
         const jwtToken = jwt.sign(

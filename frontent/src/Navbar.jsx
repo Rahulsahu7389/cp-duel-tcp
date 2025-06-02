@@ -18,6 +18,7 @@ const Navbar = () => {
   const handleLogOut = ()=>{
     // console.log("yes");
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
     // logout();
     setTimeout(() => {
       navigate('/')
