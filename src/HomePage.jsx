@@ -32,7 +32,9 @@ const sheets = [
   },
 ];
 
-const SheetsPage = () => (
+const SheetsPage = () => {
+  
+  return(
   <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
     <main className="max-w-5xl mx-auto px-4 py-12">
       {/* Hero Section */}
@@ -88,6 +90,6 @@ const SheetsPage = () => (
     </main>
     <Footer />
   </div>
-);
+);}
 
 export default SheetsPage;

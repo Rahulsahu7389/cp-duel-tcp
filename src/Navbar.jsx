@@ -1,13 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import { Link,useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/home", label: "Home" },
   { href: "/contest", label: "Contest" },
   { href: "/sheets", label: "Sheets" }, // Added Sheets page
 ];
 
-const Navbar = () => (
+
+const Navbar = () => {
+  // const {logout} = useContext(AuthContext);
+  const navigate = useNavigate();
+  
+  const handleLogOut = ()=>{
+    // console.log("yes");
+    localStorage.removeItem('token');
+    // logout();
+    setTimeout(() => {
+      navigate('/')
+    }, 1000);
+  
+  }
+  return(
   <header className="bg-gray-900 border-b border-gray-800 shadow-sm">
     <nav className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
       <Link
@@ -25,10 +42,12 @@ const Navbar = () => (
           >
             {link.label}
           </Link>
+          
         ))}
+        <button onClick={handleLogOut} style={{color:"white"}}>LogOut</button>
       </div>
     </nav>
   </header>
-);
+)};
 
 export default Navbar;

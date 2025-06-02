@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,useLocation } from "react-router-dom";
 import HomePage from "./HomePage";
 import LeaderboardPage from "./LeaderboardPage";
 import ContestPage from "./ContestPage";
@@ -12,32 +12,50 @@ import TreeSheetPage from "./TreeSheetPage";
 import RangeQuerySheetPage from "./RangeQuerySheetPage";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Signup from "./Signup";
+import Login from "./Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
+  const location = useLocation();
+  // List of routes where Navbar should be hidden
+  const hideNavbarRoutes = ['/signup','/'];
   return (
-    <Router>
-      <Navbar />
+    // <Router>
+      <>
+      {/* <Navbar /> */}
+      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/" element={<Login/>}/>
+        {/* <Route element={<ProtectedRoute children={<div>you need to login</div> */}
+        {/* }></ProtectedRoute>}> */}
+        
+        <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+
         <Route path="/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/contest" element={<ContestPage />} />
+        <Route path="/contest" element={<ProtectedRoute><ContestPage /></ProtectedRoute>} />
         <Route path="/contest/:contestId" element={<ContestBracketPage />} />
         <Route
           path="/contest/:contestId/leaderboard"
           element={<ContestLeaderboardPage />}
-        />
+          />
         <Route
           path="/contest/:contestId/start"
           element={<ContestStartPage />}
-        />
-        <Route path="/sheets" element={<SheetsPage />} />
+          />
+        <Route path="/sheets" element={<ProtectedRoute><SheetsPage /></ProtectedRoute>} />
         <Route path="/sheets/dp" element={<DPSheetPage />} />
         <Route path="/sheets/graph" element={<GraphSheetPage />} />
         <Route path="/sheets/tree" element={<TreeSheetPage />} />
         <Route path="/sheets/range-query" element={<RangeQuerySheetPage />} />
+          
+          
+          {/* </Route> */}
       </Routes>
       <Footer />
-    </Router>
+    
+    </>
   );
 }
 
