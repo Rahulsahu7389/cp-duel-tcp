@@ -88,7 +88,7 @@ const SheetsPage = () => {
         </p>
       </section>
     </main>
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );}
 
