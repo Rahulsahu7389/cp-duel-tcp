@@ -15,6 +15,7 @@ import Footer from "./Footer";
 import Signup from "./Signup";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
+import About from "./About";
 
 function App() {
   const location = useLocation();
@@ -32,13 +33,14 @@ function App() {
         {/* }></ProtectedRoute>}> */}
         
         <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+        <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
 
-        <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/leaderboard" element={<ProtectedRoute><LeaderboardPage /></ProtectedRoute>} />
         <Route path="/contest" element={<ProtectedRoute><ContestPage /></ProtectedRoute>} />
         <Route path="/contest/:contestId" element={<ContestBracketPage />} />
         <Route
           path="/contest/:contestId/leaderboard"
-          element={<ContestLeaderboardPage />}
+          element={<ProtectedRoute><ContestLeaderboardPage /></ProtectedRoute>}
           />
         <Route
           path="/contest/:contestId/start"
